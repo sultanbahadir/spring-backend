@@ -1,4 +1,5 @@
-package com.example.menu_management_system;
+package com.menu.starter;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
