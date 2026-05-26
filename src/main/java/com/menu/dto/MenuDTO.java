@@ -2,6 +2,7 @@ package com.menu.dto;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Locale.Category;
 
@@ -26,7 +27,7 @@ public class MenuDTO {
 	    private String name;
 	    private BigDecimal price;
 	    private String status; 
-	    private LocalDateTime dateCreated;
+	    private LocalDate dateCreated;
 	    private Date dateUpdated;
 
 }

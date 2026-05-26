@@ -39,7 +39,7 @@ public class MenuEntity {
 
 	    private String status; 
 
-	    private LocalDateTime dateCreated;
+	    private LocalDate dateCreated;
 
 	    private Date dateUpdated;
 

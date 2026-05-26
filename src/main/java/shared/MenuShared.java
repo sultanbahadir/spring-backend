@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface MenuShared {
 
-    MenuDTO SaveOrUpdate(MenuDTO dto);
+   public MenuDTO SaveOrUpdate(MenuDTO dto);
     
-    MenuDTO getMenuByDate(LocalDate date);
+  List<MenuDTO> getMenuByDate(LocalDate date);
     
-    List<MenuDTO> getAllMenus(); // -> Tüm menüleri liste halinde dönecek yeni metot
+    List<MenuDTO> getAllMenus();
     
     void deleteMenu(Long id);
 }
