@@ -1,4 +1,4 @@
-package controller;
+package com.menu.controller;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -14,25 +14,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.menu.dto.MenuDTO;
-
-import services.MenuServices;
+import com.menu.dto.MenuItemDTO;
+import com.menu.services.MenuItemServices;
 
 
 @RestController
 @RequestMapping("/api/menus")
-public class MenuController {
+public class MenuItemController {
 
     @Autowired
-    private MenuServices services;
+    private MenuItemServices services;
 
     @PostMapping("/saveOrUpdate")
-    public MenuDTO saveOrUpdate(@RequestBody MenuDTO request) {
+    public MenuItemDTO saveOrUpdate(@RequestBody MenuItemDTO request) {
         return services.SaveOrUpdate(request);
     }
 
     @GetMapping("/get")
-    public List<MenuDTO> getByDate( @RequestParam LocalDate date) {
+    public List<MenuItemDTO> getByDate( @RequestParam LocalDate date) {
         return services.getMenuByDate(date);
     }
 
