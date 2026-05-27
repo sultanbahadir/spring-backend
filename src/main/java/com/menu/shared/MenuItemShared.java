@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface MenuItemShared {
 
-   public MenuItemDTO SaveOrUpdate(MenuItemDTO dto);
+   public MenuItemDTO saveOrUpdate(MenuItemDTO dto);
     
   List<MenuItemDTO> getMenuByDate(LocalDate date);
     

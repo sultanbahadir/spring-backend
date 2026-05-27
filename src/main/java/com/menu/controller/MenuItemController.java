@@ -27,7 +27,7 @@ public class MenuItemController {
 
     @PostMapping("/saveOrUpdate")
     public MenuItemDTO saveOrUpdate(@RequestBody MenuItemDTO request) {
-        return services.SaveOrUpdate(request);
+        return services.saveOrUpdate(request);
     }
 
     @GetMapping("/get")

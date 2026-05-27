@@ -23,31 +23,41 @@ public class MenuItemServices implements MenuItemShared {
 
     @Autowired
     private MenuRepository menuRepository;
-	@Override
-	public MenuItemDTO SaveOrUpdate(MenuItemDTO dto) {
-		
-		MenuEntity menu = menuRepository.findById(dto.getId())
-	            .orElseThrow(() -> new RuntimeException("Menu bulunamadı"));
-		 MenuItemEntity entity;
-	        
+	
+	 @Override
+	    public MenuItemDTO saveOrUpdate(MenuItemDTO dto) {
+
+	        MenuEntity menu = menuRepository.findById(dto.getId())
+	                .orElseThrow(() -> new NoSuchElementException("Menu bulunamadı"));
+
+	        MenuItemEntity entity;
+
 	        if (dto.getId() != null) {
+
 	            entity = repo.findById(dto.getId()).orElse(new MenuItemEntity());
+
 	        } else {
-	        	
-	        	 if (repo.existsByMenuAndCategory(menu, dto.getCategory())) {
-	                 throw new RuntimeException("Bu menüde bu category zaten var");
-	             }
+
+	            if (repo.existsByMenuAndCategory(menu, dto.getCategory())) {
+	                throw new IllegalArgumentException("Bu menüde bu category zaten var");
+	            }
+
 	            entity = new MenuItemEntity();
 	            entity.setDateCreated(LocalDate.now());
 	            entity.setStatus("1");
 	        }
+
+	        entity.setMenu(menu);
+
 	        entity.setName(dto.getName());
 	        entity.setPrice(dto.getPrice());
 	        entity.setCategory(dto.getCategory());
-	        
-	        MenuItemEntity savedEntity = repo.save(entity);
-	        return convertToDto(savedEntity);
-	    	}
+
+	        MenuItemEntity saved = repo.save(entity);
+
+	        return convertToDto(saved);
+	    }
+
 	
 	@Override
 	public List<MenuItemDTO> getMenuByDate(LocalDate date) {
