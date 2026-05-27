@@ -1,7 +1,9 @@
 package com.menu.dto;
 
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Locale.Category;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,11 +15,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MenuDTO {
-    private Long id;
 
-    private BigDecimal price;
+	   private Long id;
+	   
+	    private BigDecimal price;
+	 
+	    private LocalDate dateCreated;
+	 
+	    private String status;
+	}
 
-    private LocalDate dateCreated;
-
-    private String status;
-}

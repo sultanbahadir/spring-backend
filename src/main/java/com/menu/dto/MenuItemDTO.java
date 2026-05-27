@@ -16,8 +16,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class MenuItemDTO {
@@ -29,5 +29,7 @@ public class MenuItemDTO {
 	    private String status; 
 	    private LocalDate dateCreated;
 	    private Date dateUpdated;
+		
+	
 
 }
